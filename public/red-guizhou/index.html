@@ -3,35 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>贵州红色文化互动页</title>
+    <title>贵州红色文化互动策划</title>
     <style>
       :root {
-        --red: #8f1f24;
-        --deep: #20110f;
-        --paper: #f4ead6;
-        --gold: #d2a54d;
-        --green: #203f2a;
-        --muted: #7c6a55;
+        --bg: #120f0e;
+        --paper: #f4ead7;
+        --muted: #b8ad9d;
+        --red: #b73737;
+        --gold: #d8ad63;
+        --green: #6f8b6d;
+        --line: rgba(244, 234, 215, 0.18);
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        color: var(--deep);
-        background: var(--paper);
-        font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
+        color: var(--paper);
+        background: var(--bg);
+        font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif;
       }
-      .page {
+      a { color: inherit; }
+      .hero {
         min-height: 100vh;
         display: grid;
-        grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+        grid-template-columns: minmax(320px, 0.48fr) minmax(0, 0.52fr);
+        align-items: stretch;
       }
-      .left {
+      .visual {
         min-height: 100vh;
-        padding: 44px;
-        color: #fff7e8;
         background:
-          linear-gradient(rgba(32, 17, 15, 0.5), rgba(32, 17, 15, 0.88)),
-          url("./images/first.png") center/cover;
+          linear-gradient(90deg, rgba(18, 15, 14, 0.15), rgba(18, 15, 14, 0.72)),
+          url("../images/guizhou-red-culture-hero.webp") center/cover;
+      }
+      .intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(28px, 6vw, 72px);
+        background:
+          radial-gradient(circle at 20% 15%, rgba(183, 55, 55, 0.25), transparent 22rem),
+          #151210;
       }
       .kicker {
         margin: 0 0 14px;
@@ -40,189 +50,240 @@
       }
       h1 {
         margin: 0;
-        font-size: clamp(46px, 8vw, 92px);
-        line-height: 0.98;
+        font-size: clamp(48px, 8vw, 96px);
+        line-height: 0.95;
       }
-      .left p {
-        max-width: 520px;
-        color: rgba(255, 247, 232, 0.82);
+      .intro p {
+        color: var(--muted);
         font-size: 18px;
         line-height: 1.9;
       }
-      .right {
-        padding: 34px;
+      .start {
+        width: fit-content;
+        margin-top: 22px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: var(--paper);
+        color: #161210;
+        font: 800 14px/1 "Microsoft YaHei", sans-serif;
+        text-decoration: none;
+      }
+      .app {
+        width: min(1160px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 72px 0;
+      }
+      .section-head {
+        display: grid;
+        grid-template-columns: 0.38fr 0.62fr;
+        gap: 26px;
+        align-items: end;
+        margin-bottom: 24px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(34px, 5vw, 66px);
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
       }
       .tabs {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
+        gap: 10px;
         margin-bottom: 18px;
       }
       button {
-        min-height: 42px;
-        border: 1px solid rgba(32, 17, 15, 0.24);
-        border-radius: 4px;
-        background: #fff9ed;
-        color: var(--deep);
+        min-height: 48px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(244, 234, 215, 0.06);
+        color: var(--paper);
         cursor: pointer;
         font-weight: 800;
       }
       button.active {
-        color: #fff7e8;
         background: var(--red);
         border-color: var(--red);
       }
-      .panel {
+      .story {
         display: grid;
-        grid-template-columns: 0.55fr 0.45fr;
-        gap: 20px;
-        min-height: 460px;
-        padding: 18px;
-        border: 2px solid var(--deep);
-        border-radius: 8px;
-        background: #fff9ed;
+        grid-template-columns: 0.52fr 0.48fr;
+        gap: 18px;
       }
-      .visual {
-        overflow: hidden;
-        border-radius: 6px;
-        background: #e7d8ba;
+      .map-card,
+      .strategy {
+        min-height: 440px;
+        padding: 26px;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgba(244, 234, 215, 0.06);
       }
-      .visual img {
-        width: 100%;
+      .route-line {
+        position: relative;
         height: 100%;
-        object-fit: cover;
+        min-height: 390px;
+        border-radius: 22px;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(216, 173, 99, 0.2), transparent 7rem),
+          radial-gradient(circle at 70% 58%, rgba(111, 139, 109, 0.2), transparent 9rem),
+          linear-gradient(135deg, rgba(183,55,55,0.18), rgba(244,234,215,0.04));
+        overflow: hidden;
       }
-      .copy h2 {
+      .route-line::before {
+        content: "";
+        position: absolute;
+        inset: 18%;
+        border: 2px dashed rgba(216, 173, 99, 0.75);
+        border-left-color: transparent;
+        border-radius: 50%;
+        transform: rotate(-24deg);
+      }
+      .node {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 9px rgba(216, 173, 99, 0.14);
+      }
+      .node:nth-child(1) { left: 20%; top: 22%; }
+      .node:nth-child(2) { left: 66%; top: 34%; }
+      .node:nth-child(3) { left: 45%; top: 68%; }
+      .node:nth-child(4) { left: 76%; top: 78%; }
+      .strategy h3 {
         margin: 0;
-        color: var(--red);
-        font-size: clamp(28px, 4vw, 50px);
+        color: var(--gold);
+        font-size: clamp(28px, 4vw, 48px);
         line-height: 1.12;
       }
-      .copy p,
-      .copy li {
+      .strategy p,
+      .strategy li {
         color: var(--muted);
         line-height: 1.8;
       }
-      .mission {
-        margin-top: 18px;
-        padding: 16px;
-        border-left: 5px solid var(--gold);
-        background: #f4ead6;
-      }
-      .cards {
+      .output-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin-top: 16px;
+        gap: 14px;
+        margin-top: 18px;
       }
-      .cards img {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border: 1px solid rgba(32, 17, 15, 0.22);
-        border-radius: 6px;
+      .output-grid article {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(244, 234, 215, 0.05);
+      }
+      .output-grid span {
+        color: var(--gold);
+        font: 800 12px/1.2 "Microsoft YaHei", sans-serif;
+      }
+      .output-grid p {
+        color: var(--muted);
+        line-height: 1.7;
       }
       @media (max-width: 860px) {
-        .page,
-        .panel {
+        .hero,
+        .section-head,
+        .story {
           grid-template-columns: 1fr;
         }
-        .left {
-          min-height: auto;
-          padding: 30px 22px;
-        }
-        .right {
-          padding: 20px;
-        }
-        .tabs {
-          grid-template-columns: 1fr 1fr;
-        }
+        .visual { min-height: 45vh; }
+        .tabs { grid-template-columns: 1fr 1fr; }
+        .output-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
-    <main class="page">
-      <section class="left">
-        <p class="kicker">GUIZHOU RED CULTURE / INTERACTIVE PROTOTYPE</p>
-        <h1>红色贵州<br />青年表达路线</h1>
-        <p>
-          这是一个面向作品集展示的互动小页：用路线选择的方式，把红色文化资源转化为可策划、可拍摄、可传播的新媒体选题。
-        </p>
+    <main>
+      <section class="hero">
+        <div class="visual" aria-label="贵州红色文化主视觉"></div>
+        <div class="intro">
+          <p class="kicker">GUIZHOU RED CULTURE / INTERACTIVE STORYBOARD</p>
+          <h1>把红色路线<br />做成青年表达</h1>
+          <p>
+            这个互动页不是景点罗列，而是一套新闻传播策划：从历史现场进入议题判断，
+            再把路线、人物、镜头和发布形式组织成可执行的新媒体作品。
+          </p>
+          <a class="start" href="#planner">开始选择报道路线</a>
+        </div>
       </section>
-      <section class="right">
+
+      <section class="app" id="planner">
+        <div class="section-head">
+          <h2>路线策划器</h2>
+          <p>点击不同切口，查看相应的报道角度、镜头策略和最终产出。适合在作品集展示时快速说明“我如何把一个文化选题做成互动新闻”。</p>
+        </div>
         <div class="tabs" id="tabs"></div>
-        <article class="panel">
-          <div class="visual"><img id="main-img" src="./images/BA.png" alt="路线视觉" /></div>
-          <div class="copy">
-            <p class="kicker" id="kicker">ROUTE 01</p>
-            <h2 id="title">从历史现场进入青年叙事</h2>
-            <p id="body"></p>
-            <div class="mission">
-              <strong>传播任务</strong>
-              <ul id="tasks"></ul>
-            </div>
-            <div class="cards">
-              <img src="./images/GT.png" alt="补充素材" />
-              <img src="./images/horse.png" alt="补充素材" />
-              <img src="./images/yangjiayu.png" alt="补充素材" />
+        <div class="story">
+          <div class="map-card">
+            <div class="route-line" aria-hidden="true">
+              <i class="node"></i><i class="node"></i><i class="node"></i><i class="node"></i>
             </div>
           </div>
-        </article>
+          <article class="strategy">
+            <p class="kicker" id="kicker">ANGLE 01</p>
+            <h3 id="title"></h3>
+            <p id="body"></p>
+            <ul id="tasks"></ul>
+          </article>
+        </div>
+        <div class="output-grid">
+          <article><span>SHORT VIDEO</span><p>60秒竖屏短视频：一个地点、一个选择、一个当代问题。</p></article>
+          <article><span>H5</span><p>用路线节点组织互动选择，让用户从“看历史”变成“进入叙事”。</p></article>
+          <article><span>COMMENTARY</span><p>用评论式导语收束主题：红色文化如何与今天的青年经验相连。</p></article>
+        </div>
       </section>
     </main>
     <script>
-      const routes = [
+      const data = [
         {
-          tab: "遵义",
-          img: "./images/BA.png",
-          kicker: "ROUTE 01",
-          title: "从历史现场进入青年叙事",
-          body: "以遵义会议相关红色文化资源为叙事起点，重点不是复述历史，而是设计青年可进入、可理解、可转述的新闻表达角度。",
-          tasks: ["做一条60秒短视频脚本", "设计一张竖屏封面", "设置一个互动问题：今天的选择意味着什么？"]
+          tab: "现场",
+          kicker: "ANGLE 01",
+          title: "从纪念地进入问题意识",
+          body: "把红色文化现场当作新闻现场处理：先观察空间如何被讲述，再判断今天的观众为什么需要重新理解它。",
+          tasks: ["现场观察：入口、展陈、讲解词", "采访对象：讲解员、游客、青年学生", "输出：现场短视频 + 评论式导语"]
         },
         {
-          tab: "赤水",
-          img: "./images/horse.png",
-          kicker: "ROUTE 02",
-          title: "把路线变成镜头调度",
-          body: "用“行进路线”的方式组织画面，把地理移动、历史节点和人物选择合并成适合移动端浏览的叙事节奏。",
-          tasks: ["以地图感组织分镜", "用动词做小标题", "让观众在节点间做选择"]
+          tab: "路线",
+          kicker: "ANGLE 02",
+          title: "让地理移动形成叙事节奏",
+          body: "用路线组织信息，不堆史实。每个节点对应一个问题：为什么出发、如何选择、抵达之后改变了什么。",
+          tasks: ["节点化脚本：起点、转折、抵达", "镜头策略：地图感、脚步声、环境音", "输出：互动H5路线"]
         },
         {
-          tab: "村寨",
-          img: "./images/GT.png",
-          kicker: "ROUTE 03",
-          title: "连接红色文化与乡村振兴",
-          body: "把红色文化放回今天的乡村生活中观察，关注文旅、青年返乡、村级传播和地方公共叙事的变化。",
-          tasks: ["采访一个地方讲述者", "拍摄一个生活化场景", "把红色资源转化为当代议题"]
+          tab: "人物",
+          kicker: "ANGLE 03",
+          title: "把宏大历史落到个体讲述",
+          body: "寻找当代讲述者，让红色文化从纪念馆走到生活中，连接乡村、文旅、教育和青年表达。",
+          tasks: ["采访：地方讲述者与青年参与者", "材料：旧照片、口述、当代生活", "输出：人物侧写短片"]
         },
         {
-          tab: "青年",
-          img: "./images/yangjiayu.png",
-          kicker: "ROUTE 04",
-          title: "形成可发布的新媒体产品",
-          body: "最终产出不是材料堆叠，而是一组可发布作品：短视频、封面、H5互动页与评论式导语共同构成传播组合。",
-          tasks: ["写一句评论式导语", "生成互动H5结尾选择", "形成跨平台发布清单"]
+          tab: "传播",
+          kicker: "ANGLE 04",
+          title: "形成跨平台发布组合",
+          body: "同一选题拆成不同平台形态：抖音看节奏，小红书看标题封面，H5看参与感，评论看观点收束。",
+          tasks: ["抖音：强节奏现场感", "小红书：青年体验标题", "H5：选择式互动结尾"]
         }
       ];
       const tabs = document.getElementById("tabs");
       const title = document.getElementById("title");
       const body = document.getElementById("body");
       const kicker = document.getElementById("kicker");
-      const img = document.getElementById("main-img");
       const tasks = document.getElementById("tasks");
       function render(index) {
-        const item = routes[index];
+        const item = data[index];
         [...tabs.children].forEach((button, i) => button.classList.toggle("active", i === index));
         title.textContent = item.title;
         body.textContent = item.body;
         kicker.textContent = item.kicker;
-        img.src = item.img;
         tasks.innerHTML = item.tasks.map((task) => `<li>${task}</li>`).join("");
       }
-      routes.forEach((route, index) => {
+      data.forEach((item, index) => {
         const button = document.createElement("button");
-        button.textContent = route.tab;
+        button.textContent = item.tab;
         button.addEventListener("click", () => render(index));
         tabs.appendChild(button);
       });

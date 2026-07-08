@@ -1,15 +1,15 @@
 # 马雨秋新闻传播学生作品集
 
-这是一个面向见习营、课程展示和新闻传播方向申请场景的个人简历/作品集网页。页面不按传统求职简历排序，而是围绕“能写、能编、能剪、能融、能跑、能析”六类能力组织经历、作品与证明材料。
+这是一个面向见习营、课程展示和新闻传播方向申请场景的个人简历/作品集网页。页面不按传统求职简历排序，而是围绕“能写、能编、能剪、能融、能跑”五类能力组织经历、作品与证明材料。
 
-新版展示逻辑为：左侧固定展示能力大字、能力说明和证明点，右侧展示该能力对应的真实作品截图、链接或文字证据。
+新版展示逻辑为：更现代的作品展陈式界面，每个能力模块对应真实作品截图、外部链接或视频资产链接。
 
 ## 页面内容
 
 - Hero 首屏：身份、定位、能力标签和简历下载入口
-- 六个能力模块：每个模块采用“左能力、右作品证据”的展示结构
+- 五个能力模块：评论写作、编辑策划、短视频叙事、AIGC/H5融合表达、实地调研
 - 代表作品证据：只使用已提供材料、已发现H5、已查到的两篇评论转载页和本地贵州图片
-- 贵州红色文化互动页：新增独立静态互动页，并嵌入作品集页面
+- 贵州红色文化互动页：新增独立静态互动页，主作品集提供跳转入口
 - 经历与训练证据：中国青年网实习、北京文化论坛、贵州选题、调研项目、赛事经历等
 - 课程成绩与技能工具：新闻评论、新闻编辑、电视编辑、SPSS、Python、QGIS、微信小程序等
 - 联系与下载：邮箱、电话、纸质版简历下载
@@ -48,6 +48,8 @@ pnpm preview
 - 多样评杂志：https://flbook.com.cn/c/Dc0G141gJM
 - 贵州互动 H5：https://vmel6943-commits.github.io/colorful_guizhou/
 - 新增贵州红色文化互动页：`public/red-guizhou/index.html`
+- 蓝桥杯 AIGC 视频：https://github.com/vmel6943-commits/ma-yuqiu-news-portfolio/releases/download/portfolio-video-assets/lanqiao-aigc-video.mp4
+- 大广赛 AIGC 视频：https://github.com/vmel6943-commits/ma-yuqiu-news-portfolio/releases/download/portfolio-video-assets/daguangsai-aigc-video.mp4
 - 评论《没用AI赚到钱，也不能先被“AI焦虑”收割了》：https://view.inews.qq.com/a/20260319A07PPR00
 - 评论《拿婴儿玩偶施暴，算哪门子解压？》：https://view.inews.qq.com/a/20260601A066H100
 - 2025北京文化论坛抖音短视频：
